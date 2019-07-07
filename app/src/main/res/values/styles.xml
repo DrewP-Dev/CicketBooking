@@ -4,13 +4,13 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
 
         <!-- To change the popup menu and app text color  -->
         <item name="android:textColor">@android:color/background_light</item>
-        <item name="android:textColorSecondary">@color/colorSecondary</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryLight</item>
 
         <!-- To change the background of options menu-->
         <item name="android:itemBackground">@color/colorPrimary</item>

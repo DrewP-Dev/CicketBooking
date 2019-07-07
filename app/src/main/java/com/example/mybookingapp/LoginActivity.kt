@@ -13,6 +13,15 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        setSupportActionBar(findViewById(R.id.log_toolbar))
+
+        val actionBar = supportActionBar
+
+        actionBar!!.title = ""
+
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         mLoginBtn = findViewById(R.id.login_btn)
 
         mLoginBtn.setOnClickListener {
@@ -21,5 +30,10 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

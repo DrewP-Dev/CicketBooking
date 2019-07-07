@@ -6,4 +6,5 @@
     <color name="colorSecondary">#EECC8D</color>
     <color name="colorSecondaryDark">#F08B33</color>
     <color name="colorSecondaryLight">#E2C6AC</color>
+    <color name="colorDark">#1F0A01</color>
 </resources>

@@ -8,25 +8,31 @@ import android.widget.Button
 class RegisterActivity : AppCompatActivity() {
 
     lateinit var mRegisterBtn : Button
-    lateinit var mHaveAccountBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        setSupportActionBar(findViewById(R.id.reg_toolbar))
+
+        val actionBar = supportActionBar
+
+        actionBar!!.title = ""
+
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         mRegisterBtn = findViewById(R.id.register_btn)
-        mHaveAccountBtn = findViewById(R.id.have_account_btn)
 
         mRegisterBtn.setOnClickListener {
             val intent = Intent(applicationContext , MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+    }
 
-        mHaveAccountBtn.setOnClickListener {
-            val intent = Intent(applicationContext , LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

@@ -2,9 +2,8 @@
 <androidx.appcompat.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/app_toolbar"
+        android:id="@+id/app_toolbar_transparent"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
         app:titleTextColor="@color/colorSecondaryLight">
 </androidx.appcompat.widget.Toolbar>

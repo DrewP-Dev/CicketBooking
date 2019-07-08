@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         val actionBar = supportActionBar
 
-        actionBar!!.title = "Cinema Booking App"
+        actionBar!!.title = "Cicket Booking"
 
         // Display the app icon in toolbar
         actionBar.setDisplayShowHomeEnabled(true)

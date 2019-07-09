@@ -8,16 +8,6 @@
             app:showAsAction="never"/>
 
     <item
-            android:id="@+id/about_btn"
-            android:title="@string/about"
-            app:showAsAction="never"/>
-
-    <item
-            android:id="@+id/settings_btn"
-            android:title="@string/settings"
-            app:showAsAction="never"/>
-
-    <item
             android:id="@+id/log_out_btn"
             android:title="@string/log_out"
             app:showAsAction="never"/>

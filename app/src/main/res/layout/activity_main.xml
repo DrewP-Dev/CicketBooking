@@ -24,8 +24,6 @@
             app:itemBackground="@drawable/bg_item_divider_1"
             app:headerLayout="@layout/drawer_header"
             app:menu="@menu/drawer_menu"
-    >
-
-    </com.google.android.material.navigation.NavigationView>
+    />
 
 </androidx.drawerlayout.widget.DrawerLayout>

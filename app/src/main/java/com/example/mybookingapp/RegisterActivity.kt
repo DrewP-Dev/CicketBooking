@@ -48,7 +48,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         if (!validateForm(email,password)){
             return
         }
-
+        updateUI(true)
         mAuth!!.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this){
             if (it.isSuccessful){
                 Log.e(TAG, "createAccount: Success!")
@@ -59,6 +59,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 Log.e(TAG, "createAccount: Fail!", it.exception)
                 Toast.makeText(applicationContext, "Authentication failed!", Toast.LENGTH_SHORT).show()
+                updateUI(false)
             }
         }
     }
@@ -77,6 +78,10 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(applicationContext, "Your password is too short! Please enter minimum 6 characters!",
                 Toast.LENGTH_SHORT).show()
             return false
+        } else if (password.length > 128){
+            Toast.makeText(applicationContext, "Your password is too long! Please enter maximum 128 characters!",
+                Toast.LENGTH_SHORT).show()
+            return false
         }
 
         return true
@@ -89,7 +94,22 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
         if (currentUser != null){
             sendToStart()
+        } else {
+            updateUI(false)
+        }
+    }
 
+    private fun updateUI(boolean: Boolean){
+        if (boolean) {
+            reg_email_input.visibility = View.GONE
+            reg_password_input.visibility = View.GONE
+            register_btn.visibility = View.GONE
+            reg_loading.visibility = View.VISIBLE
+        } else {
+            reg_email_input.visibility = View.VISIBLE
+            reg_password_input.visibility = View.VISIBLE
+            register_btn.visibility = View.VISIBLE
+            reg_loading.visibility = View.GONE
         }
     }
 

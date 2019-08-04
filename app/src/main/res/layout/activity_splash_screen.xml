@@ -9,12 +9,28 @@
 >
 
     <TextView
+            android:id="@+id/welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/loading"
             android:text="@string/welcome_to_cicket_booking"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+    />
+
+    <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:indeterminate="true"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"

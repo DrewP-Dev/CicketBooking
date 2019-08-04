@@ -3,35 +3,37 @@ package com.example.mybookingapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.view.View
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_start.*
 
 
-class StartActivity : AppCompatActivity() {
+
+class StartActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mAuth: FirebaseAuth? = null
-
-    lateinit var mCreateAccountBtn : Button
-    lateinit var mSignInBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
-        mCreateAccountBtn = findViewById(R.id.create_account_btn)
-        mSignInBtn = findViewById(R.id.sign_in_btn)
+        create_account_btn.setOnClickListener(this)
+        sign_in_btn.setOnClickListener(this)
 
-        mCreateAccountBtn.setOnClickListener {
+        mAuth = FirebaseAuth.getInstance()
+    }
+
+    override fun onClick(view: View?) {
+        val i = view!!.id
+
+        if (i == R.id.create_account_btn){
             val intent = Intent(applicationContext , RegisterActivity::class.java)
             startActivity(intent)
         }
-
-        mSignInBtn.setOnClickListener {
+        if (i == R.id.sign_in_btn){
             val intent = Intent(applicationContext , LoginActivity::class.java)
             startActivity(intent)
         }
-
-        mAuth = FirebaseAuth.getInstance()
     }
 
     override fun onStart() {
@@ -41,7 +43,6 @@ class StartActivity : AppCompatActivity() {
 
         if (currentUser != null){
             sendToStart()
-
         }
     }
 

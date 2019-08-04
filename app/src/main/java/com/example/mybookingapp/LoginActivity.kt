@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         login_btn.setOnClickListener(this)
+        forgot_password.setOnClickListener(this)
 
         mAuth = FirebaseAuth.getInstance()
     }
@@ -40,14 +41,18 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         if (i == R.id.login_btn){
             signIn(log_email_input.text.toString(), log_password_input.text.toString().trim())
         }
+        if (i == R.id.forgot_password){
+            val intent = Intent(applicationContext , ResetPasswordActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun signIn(email: String, password: String){
-        Log.e(TAG, "createAccount:" + email)
+        Log.e(TAG, "loginAccount:" + email)
         if (!validateForm(email,password)){
             return
         }
-
+        updateUI(true)
         mAuth!!.signInWithEmailAndPassword(email,password).addOnCompleteListener(this){
             if (it.isSuccessful){
                 Log.e(TAG, "signIn: Success!")
@@ -58,6 +63,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 Log.e(TAG, "signIn: Fail!", it.exception)
                 Toast.makeText(applicationContext, "Authentication failed!", Toast.LENGTH_SHORT).show()
+                updateUI(false)
             }
         }
     }
@@ -72,8 +78,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         } else if (TextUtils.isEmpty(password)){
             Toast.makeText(applicationContext, "Please enter your password!", Toast.LENGTH_SHORT).show()
             return false
-        } else if (password.length < 6){
+        } else if (password.length < 8){
             Toast.makeText(applicationContext, "Your password is too short! Please enter minimum 6 characters!",
+                Toast.LENGTH_SHORT).show()
+            return false
+        } else if (password.length > 128){
+            Toast.makeText(applicationContext, "Your password is too long! Please enter maximum 128 characters!",
                 Toast.LENGTH_SHORT).show()
             return false
         }
@@ -88,7 +98,24 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         if (currentUser != null){
             sendToStart()
+        } else {
+            updateUI(false)
+        }
+    }
 
+    private fun updateUI(boolean: Boolean){
+        if (boolean) {
+            log_email_input.visibility = View.GONE
+            log_password_input.visibility = View.GONE
+            login_btn.visibility = View.GONE
+            forgot_password.visibility = View.GONE
+            log_loading.visibility = View.VISIBLE
+        } else {
+            log_email_input.visibility = View.VISIBLE
+            log_password_input.visibility = View.VISIBLE
+            login_btn.visibility = View.VISIBLE
+            forgot_password.visibility = View.VISIBLE
+            log_loading.visibility = View.GONE
         }
     }
 

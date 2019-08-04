@@ -36,28 +36,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
         >
-            <com.facebook.login.widget.LoginButton
-                    android:id="@+id/fb_login_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/mybutton3"
-                    android:textSize="20sp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:paddingTop="11dp"
-                    android:paddingBottom="11dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginBottom="15dp"/>
 
             <Button
                     android:id="@+id/sign_in_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/mybutton1"
-                    android:layout_below="@+id/fb_login_btn"
                     android:text="@string/sign_in"
                     android:textSize="20sp"
+                    android:textAllCaps="false"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="30dp"
@@ -89,6 +76,7 @@
                     android:background="@drawable/mybutton2"
                     android:text="@string/create_account"
                     android:textSize="20sp"
+                    android:textAllCaps="false"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="30dp"

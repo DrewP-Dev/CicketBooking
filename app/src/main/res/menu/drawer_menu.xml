@@ -4,17 +4,24 @@
 
     <item
             android:id="@+id/booking_btn"
-            android:title="@string/booking"
+            android:title="@string/bookings"
             app:showAsAction="never"/>
 
     <item
-            android:id="@+id/about_btn"
-            android:title="@string/about"
-            app:showAsAction="never"/>
+            android:id="@+id/movies_btn"
+            android:title="@string/movies"
+            app:showAsAction="never"
+    />
 
     <item
-            android:id="@+id/settings_btn"
-            android:title="@string/settings"
+            android:id="@+id/cinemas_btn"
+            android:title="@string/cinemas"
+            app:showAsAction="never"
+    />
+
+    <item
+            android:id="@+id/my_account_btn"
+            android:title="@string/my_account"
             app:showAsAction="never"/>
 
 </menu>

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.mybookingapp.R.id.*
 import com.google.android.material.navigation.NavigationView
@@ -43,14 +44,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             booking_btn->{
 
             }
-            about_btn ->{
-
+            movies_btn->{
+                val intent = Intent(applicationContext , MoviesActivity::class.java)
+                startActivity(intent)
             }
-            settings_btn ->{
-
+            cinemas_btn->{
+                val intent = Intent(applicationContext , CinemasActivity::class.java)
+                startActivity(intent)
+            }
+            my_account_btn ->{
+                val intent = Intent(applicationContext , MyAccountActivity::class.java)
+                startActivity(intent)
             }
             else ->{
-
+                Toast.makeText(applicationContext, "ERROR!", Toast.LENGTH_SHORT).show()
             }
         }
         return true
@@ -65,15 +72,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            my_account_btn->{
-
+            about_btn ->{
+                val intent = Intent(applicationContext , AboutActivity::class.java)
+                startActivity(intent)
             }
             log_out_btn ->{
                 mAuth!!.signOut()
                 sendToStart()
             }
             else ->{
-
+                Toast.makeText(applicationContext, "ERROR!", Toast.LENGTH_SHORT).show()
             }
         }
         return true

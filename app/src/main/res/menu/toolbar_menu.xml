@@ -3,8 +3,8 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-            android:id="@+id/my_account_btn"
-            android:title="@string/my_account"
+            android:id="@+id/about_btn"
+            android:title="@string/about"
             app:showAsAction="never"/>
 
     <item

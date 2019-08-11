@@ -6,23 +6,38 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_cinema_details.*
 
-class MyAccountActivity : AppCompatActivity() {
+class CinemaDetailsActivity : AppCompatActivity() {
 
     private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_account)
+        setContentView(R.layout.activity_cinema_details)
 
-        setSupportActionBar(findViewById(R.id.my_account_toolbar))
+        val bundle: Bundle? = intent.extras
+        val cName = bundle!!.getString("Cinema_Name")
+        val cPhoto = bundle.getString("Cinema_Photo")
+        val cLocation = bundle.getString("Cinema_Location")
+        val cAddress = bundle.getString("Cinema_Address")
+        val cContact = bundle.getString("Cinema_Contact")
+
+        setSupportActionBar(findViewById(R.id.cinema_details_toolbar))
 
         val actionBar = supportActionBar
 
-        actionBar!!.title = "My Account"
+        actionBar!!.title = cName
 
         actionBar.setDisplayHomeAsUpEnabled(true)
         actionBar.setDisplayHomeAsUpEnabled(true)
+
+        cinema_details_name.setText(cName)
+        Picasso.get().load(cPhoto).into(cinema_details_img)
+        cinema_details_location.setText(cLocation)
+        cinema_details_address.setText(cAddress)
+        cinema_details_contact.setText(cContact)
 
         mAuth = FirebaseAuth.getInstance()
     }
@@ -36,10 +51,6 @@ class MyAccountActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.about_btn ->{
-                val intent = Intent(applicationContext , AboutActivity::class.java)
-                startActivity(intent)
-            }
             R.id.log_out_btn ->{
                 mAuth!!.signOut()
                 sendToStart()
@@ -58,11 +69,10 @@ class MyAccountActivity : AppCompatActivity() {
 
         if (currentUser == null){
             sendToStart()
-
         }
     }
 
-    private fun sendToStart(){
+    private fun sendToStart() {
         val startIntent = Intent(applicationContext, StartActivity::class.java)
         startActivity(startIntent)
         finish()

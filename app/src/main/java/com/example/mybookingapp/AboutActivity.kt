@@ -37,9 +37,6 @@ class AboutActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.about_btn ->{
-                Toast.makeText(applicationContext, "You are already in this page", Toast.LENGTH_SHORT).show()
-            }
             R.id.log_out_btn ->{
                 mAuth!!.signOut()
                 sendToStart()

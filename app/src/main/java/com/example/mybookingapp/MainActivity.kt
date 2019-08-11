@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             booking_btn->{
-
+                val intent = Intent(applicationContext , BookingActivity::class.java)
+                startActivity(intent)
             }
             movies_btn->{
                 val intent = Intent(applicationContext , MoviesActivity::class.java)
@@ -52,8 +53,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(applicationContext , CinemasActivity::class.java)
                 startActivity(intent)
             }
-            my_account_btn ->{
-                val intent = Intent(applicationContext , MyAccountActivity::class.java)
+            about_btn ->{
+                val intent = Intent(applicationContext , AboutActivity::class.java)
                 startActivity(intent)
             }
             else ->{
@@ -72,10 +73,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            about_btn ->{
-                val intent = Intent(applicationContext , AboutActivity::class.java)
-                startActivity(intent)
-            }
             log_out_btn ->{
                 mAuth!!.signOut()
                 sendToStart()

@@ -22,7 +22,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="bookings">Bookings</string>
+    <string name="bookings">Booking</string>
     <string name="reset_password">Reset Password</string>
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="forgot_password">
@@ -30,4 +30,11 @@
     </string>
     <string name="movies">Movies</string>
     <string name="cinemas">Cinemas</string>
+    <string name="show_movie_description">Show Movie Description</string>
+    <string name="hide_movie_description">Hide Movie Description</string>
+    <string name="book_a_movie_ticket">Book a Movie Ticket</string>
+    <string name="book_your_ticket">Book Your Ticket</string>
+    <string name="enter_your_name_and_surname">Enter Your Name and Surname</string>
+    <string name="enter_cinema_name">Enter Cinema Name</string>
+    <string name="enter_movie_name">Enter Movie Name</string>
 </resources>
